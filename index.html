@@ -79,12 +79,13 @@
           <div class="col-lg-6">
             <div class="row">
               <div class="col-8 text-end">
-                <h3>Yudhi</h3>
-                <p>Umur 25 <br> Islam <br> Lenggerang,Kuripan,Watumalang,Wonosobo.</p>
-                <p>Putra dari Bpk. Fendi <br> dan <br> Ibu Bisih</p>
+                <h3>putra</h3>
+                <p>Umur 25 <br> Islam <br>Semarang
+                </p>
+                <p>Putra dari Bpk..... <br> dan <br> Ibu ...</p>
               </div>
               <div class="col-4">
-                <img src="img/WAA.jpg" alt="yudhi" class="img-responsive rounded-circle">
+                <img src="img/cewekk.jpg" alt="yudhi" class="img-responsive rounded-circle">
               </div>
             </div>
           </div>
@@ -99,7 +100,7 @@
               <div class="col-8">
                 <h3>Putri</h3>
                 <p>Umur 21 <br> Islam <br> Panggung Lor,Semarang Barat,Kota Semarang.</p>
-                <p>Putri dari Bpk. Yanto<br> dan <br> Ibu Yanti</p>
+                <p>Putri dari Bpk. ...<br> dan <br> Ibu...</p>
               </div>
             </div>
           </div>
@@ -499,9 +500,41 @@
         isPlaying = !isPlaying;
       }
 
-      disableScroll();
-    </script> -->
 
+      audioIconWrapper.onclick = debounce(handleAudioIconClick, 100);
+    
+      disableScroll();
+    
+      // Debounce function to limit the rate at which a function can fire
+      function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
+    
+      // Throttle function to limit the rate at which a function can fire
+      function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+        return function(...args) {
+          if (!lastRan) {
+            func.apply(this, args);
+            lastRan = Date.now();
+          } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(() => {
+              if ((Date.now() - lastRan) >= limit) {
+                func.apply(this, args);
+                lastRan = Date.now();
+              }
+            }, limit - (Date.now() - lastRan));
+          }
+        };
+      }
+    </script> -->
+    
 
     <script>
       const rootElement = document.querySelector(":root");
